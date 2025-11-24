@@ -1,7 +1,18 @@
 # config.py
 
-# 数据集路径
-DATASET_PATH = "D:\pycharm\机器学习应用开发\pythonProject2\product_sales_dataset_final.csv"
+import os
+
+# --- 动态数据集路径配置 ---
+# 判断是否在 Streamlit Cloud 环境中
+# Streamlit Cloud 会自动设置这个环境变量
+if 'STREAMLIT_RUNTIME' in os.environ:
+    # 云端环境: 使用相对路径
+    # 假设你的 CSV 文件放在项目根目录下的 'data' 文件夹中
+    DATASET_PATH = os.path.join('data', 'product_sales_dataset_final.csv')
+else:
+    # 本地环境: 使用你原来的绝对路径
+    DATASET_PATH = "D:\pycharm\机器学习应用开发\pythonProject2\product_sales_dataset_final.csv"
+
 # 模型与图表保存目录
 MODEL_DIR = "models"
 PLOT_DIR = "plots"
@@ -32,8 +43,8 @@ COLUMN_MAPPING = {
     " Revenue ": "sales_volume",
     "Category": "product_category",
     "Sub_Category": "product_subcategory",
-    " Unit_Price ": "Unit_Price",  # <--- 新增这一行
-    " Profit ": "Profit"           # <--- 建议也添加这一行，以防后续用到
+    " Unit_Price ": "Unit_Price",
+    " Profit ": "Profit"
 }
 
 # 需要保留的特征列（根据你的数据集调整）
