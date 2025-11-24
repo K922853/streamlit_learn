@@ -2,16 +2,12 @@
 
 import os
 
-# --- 动态数据集路径配置 ---
-# 判断是否在 Streamlit Cloud 环境中
-# Streamlit Cloud 会自动设置这个环境变量
-if 'STREAMLIT_RUNTIME' in os.environ:
-    # 云端环境: 使用相对路径
-    # 假设你的 CSV 文件放在项目根目录下的 'data' 文件夹中
-    DATASET_PATH = "product_sales_dataset_final.csv"
-else:
-    # 本地环境: 使用你原来的绝对路径
-    DATASET_PATH = "D:\pycharm\ML\pythonProject2\product_sales_dataset_final.csv"
+# --- 直接使用相对路径 ---
+# 这个路径在本地和云端都有效，前提是：
+# 1. 本地运行时，你在项目根目录下执行脚本 (例如: python main.py)
+# 2. 云端运行时，CSV文件已被正确上传到根目录
+DATASET_PATH = "product_sales_dataset_final.csv"
+
 
 # 模型与图表保存目录
 MODEL_DIR = "models"
