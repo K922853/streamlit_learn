@@ -8,10 +8,10 @@ import os
 if 'STREAMLIT_RUNTIME' in os.environ:
     # 云端环境: 使用相对路径
     # 假设你的 CSV 文件放在项目根目录下的 'data' 文件夹中
-    DATASET_PATH = os.path.join('data', 'product_sales_dataset_final.csv')
+    DATASET_PATH = "product_sales_dataset_final.csv"
 else:
     # 本地环境: 使用你原来的绝对路径
-    DATASET_PATH = "D:\pycharm\机器学习应用开发\pythonProject2\product_sales_dataset_final.csv"
+    DATASET_PATH = "D:\pycharm\ML\pythonProject2\product_sales_dataset_final.csv"
 
 # 模型与图表保存目录
 MODEL_DIR = "models"
